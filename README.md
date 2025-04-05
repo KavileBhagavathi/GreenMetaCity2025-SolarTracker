@@ -66,12 +66,30 @@ The provided code reads the light intensity from the photoresistors and the ligh
 ### Example Output on LCD:
 
 ```
-Max Light: 512
-Angle: 90
+T: 23 C H: 37 % 
+Light: 32.50 lux
 ```
 
-This display shows the current light intensity and the angle at which the panel is positioned based on the sensors.
+The LCD shows the Temperature, Humidity and Light Intensity and is refreshed every second
 
+### Serial Output for Downstream Boards
+The UNO board also writes to the Serial monitor so that it could be used by the downstream teams. The implementation is presently crude and needs further refining. 
+```
+    Serial.print("T: ");
+    Serial.print(temp);
+    Serial.print(" C H: ");
+    Serial.print(hum);
+    Serial.print("% ");
+    Serial.print("Light: ");
+    Serial.print(lux);
+    Serial.print(" lux");
+    Serial.println("");
+```
+
+The output would be of the format: 
+```
+T: 23 C H: 37% Light: 25.00 lux
+```
 ## Troubleshooting
 
 - **LCD Not Displaying Data**: Ensure the I2C connections are correct. Try running a simple I2C scan to verify communication.

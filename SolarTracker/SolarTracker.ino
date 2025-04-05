@@ -18,7 +18,7 @@ const int photoResist180 = A2;
 
 // Timing variables
 unsigned long previousMillis = 0;
-const long interval = 1000; 
+const long interval = 1000; //delay
 
 void setup() {
   // Attach the servos to pins
@@ -30,6 +30,7 @@ void setup() {
   Wire.begin();
   lightMeter.begin();
   servoBase.write(0);
+
   lcd.begin(16,2);
   lcd.backlight();
   lcd.setCursor(0,0);
